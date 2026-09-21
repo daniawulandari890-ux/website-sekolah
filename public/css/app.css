@@ -1,0 +1,803 @@
+/* =========================================================
+   TOKENS
+   ========================================================= */
+:root {
+    --navy: #1C2E4A;
+    --navy-deep: #142236;
+    --gold: #C89B3C;
+    --sage: #5B7A63;
+    --cream: #F8F6F1;
+    --ink: #23262B;
+    --ink-soft: #5B6270;
+    --border: #E4DFD3;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    margin: 0;
+    color: var(--navy);
+    line-height: 1.2;
+}
+
+p { margin: 0 0 0.5em; color: var(--ink-soft); }
+
+a { color: inherit; }
+
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.site-header__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand__mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: var(--font-display);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.brand__mark--light {
+    background: var(--gold);
+}
+
+.brand__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #D8DEE9;
+    font-size: 14px;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.site-nav a.is-active,
+.site-nav a:hover {
+    color: #fff;
+    border-bottom-color: var(--gold);
+}
+
+.nav-cta {
+    background: var(--gold);
+    color: var(--navy-deep) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    border-bottom: none !important;
+    font-weight: 600;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+    background: var(--navy);
+    background-image: linear-gradient(135deg, rgba(11,31,58,0.75) 60%, rgba(11,31,58,0.85) 100%), url('/images/hero-sekolah.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    /* clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); */
+    padding: 40px 24px 48px;
+}
+
+.hero__inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.hero__eyebrow {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+}
+
+.hero__title {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    max-width: 14ch;
+    margin-bottom: 20px;
+}
+
+.hero__desc {
+    color: #C7CEDB;
+    max-width: 46ch;
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: center;
+}
+
+.stat-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 6px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.stat-block__num {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.stat-block__label {
+    color: #D8DEE9;
+    font-size: 14px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: var(--navy-deep);
+}
+
+.btn-gold:hover { background: #B98F35; }
+
+.btn-outline-light {
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+}
+
+.btn-outline-light:hover { border-color: #fff; }
+
+.btn-navy {
+    background: var(--navy);
+    color: #fff;
+}
+
+.btn-navy:hover { background: var(--navy-deep); }
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+.section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 32px;
+}
+
+.section--muted { background: #F1EDE3; max-width: none; }
+.section--muted > * { max-width: 1180px; margin-left: auto; margin-right: auto; }
+
+.section__head {
+    margin-bottom: 32px;
+    max-width: 520px;
+}
+
+.section__head h2 { font-size: 28px; margin-bottom: 8px; }
+
+/* Program cards - flat with left accent, no shadows */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.program-card {
+    background: #fff;
+    border-left: 3px solid var(--gold);
+    padding: 24px 22px;
+}
+
+.program-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.program-card p { font-size: 15px; margin: 0; }
+
+/* Berita list */
+.berita-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.berita-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.berita-item:first-child { padding-top: 0; }
+
+.berita-item time {
+    color: var(--sage);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.berita-item h3 { font-size: 18px; margin-bottom: 6px; }
+.berita-item p { font-size: 15px; margin: 0; }
+
+/* =========================================================
+   PAGE HERO (profil)
+   ========================================================= */
+.page-hero {
+    background: var(--navy);
+    padding: 56px 32px;
+    text-align: left;
+}
+
+.page-hero h1 { color: #fff; font-size: 36px; margin-bottom: 8px; }
+.page-hero p { color: #C7CEDB; margin: 0; max-width: 50ch; }
+
+.split__text { max-width: 720px; }
+.split__text h2 { margin-bottom: 14px; }
+
+.visi-misi {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.visi-misi h2 { margin-bottom: 14px; font-size: 22px; }
+.visi-misi__misi ol { padding-left: 20px; color: var(--ink-soft); }
+.visi-misi__misi li { margin-bottom: 10px; }
+
+.tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tag-list li {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: var(--navy);
+}
+
+.tag-list--gold li {
+    border-color: transparent;
+    background: rgba(200,155,60,0.14);
+    color: #8A6A22;
+}
+
+/* =========================================================
+   KOMPETENSI KEAHLIAN
+   ========================================================= */
+.kompetensi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.kompetensi-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    padding: 28px 26px;
+}
+
+.kompetensi-card h3 { font-size: 20px; margin-bottom: 10px; }
+
+.kompetensi-card h4 {
+    font-family: var(--font-body);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin: 18px 0 10px;
+}
+
+.kompetensi-card__prospek { color: var(--ink); font-size: 15px; margin: 0; }
+
+/* =========================================================
+   EKSTRAKURIKULER
+   ========================================================= */
+.ekskul-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.ekskul-card {
+    background: #fff;
+    border-left: 3px solid var(--sage);
+    padding: 24px 22px;
+}
+
+.ekskul-card__kategori {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+}
+
+.ekskul-card h3 { font-size: 18px; margin-bottom: 8px; }
+.ekskul-card > p { font-size: 15px; margin-bottom: 16px; }
+
+.ekskul-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.ekskul-card__meta dt {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+.ekskul-card__meta dd {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+    margin: 2px 0 0;
+}
+
+/* =========================================================
+   DATA GURU
+   ========================================================= */
+.guru-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.guru-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 26px 20px;
+    text-align: center;
+} 
+
+.guru-card__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 14px;
+    overflow:hidden;
+}
+    .guru-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.guru-card h3 { font-size: 16px; margin-bottom: 4px; }
+.guru-card p { font-size: 14px; margin: 0; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+    background: var(--navy-deep);
+    color: #B7BECD;
+    padding: 48px 32px 0;
+}
+
+.site-footer__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+}
+
+.site-footer h4 {
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.site-footer p { color: #9AA3B5; font-size: 14px; margin: 0 0 4px; }
+
+.site-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 18px 0;
+    font-size: 13px;
+    color: #7C8598;
+}
+
+/* =========================================================
+   AUTH SCREEN (Login)
+   ========================================================= */
+.auth-screen {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.auth-screen__panel {
+    background: var(--navy);
+    background-image: radial-gradient(circle at 20% 20%, rgba(200,155,60,0.12), transparent 55%);
+    color: #fff;
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.auth-screen__panel h1 {
+    color: #fff;
+    font-size: 32px;
+    max-width: 12ch;
+}
+
+.auth-screen__panel p { color: #C7CEDB; max-width: 36ch; }
+
+.auth-screen__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.auth-box { width: 100%; max-width: 380px; }
+.auth-box h2 { font-size: 24px; margin-bottom: 6px; }
+.auth-box__sub { font-size: 14px; margin-bottom: 24px; }
+
+.auth-box__back {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-decoration: none;
+}
+
+.auth-box__back:hover { color: var(--navy); }
+
+/* =========================================================
+   FORM (dipakai di login)
+   ========================================================= */
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    background: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+
+.form-check { margin-bottom: 20px; font-size: 14px; color: var(--ink-soft); }
+
+.alert {
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background: #FBE9E7;
+    color: #9C3B2E;
+    border: 1px solid #F3C6BE;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1050px) {
+    .nav-toggle { display: flex; }
+
+    .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 32px 24px;
+        gap: 16px;
+        display: none;
+    }
+
+    .site-nav.is-open { display: flex; }
+}
+
+@media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding: 48px 24px 80px; }
+    .program-grid { grid-template-columns: 1fr; }
+    .berita-item { grid-template-columns: 1fr; gap: 6px; }
+    .visi-misi { grid-template-columns: 1fr; }
+    .site-footer__inner { grid-template-columns: 1fr; }
+    .auth-screen { grid-template-columns: 1fr; }
+    .auth-screen__panel { padding: 40px 24px; }
+    .kompetensi-grid { grid-template-columns: 1fr; }
+    .ekskul-grid { grid-template-columns: 1fr; }
+    .guru-grid { grid-template-columns: repeat(2, 1fr); }
+}
+/* ==================================================
+   PRODI GRID (lingkaran ikon ala SMKN 4 Bandung)
+   ================================================== */
+.prodi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.prodi-item {
+    text-align: center;
+}
+
+.prodi-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.prodi-item p {
+    color: #555;
+    font-size: 14px;
+}
+
+.prodi-icon {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.prodi-icon i {
+    font-size: 60px;
+    color: #fff;
+}
+
+.icon-red    { background: linear-gradient(135deg, #ef5350, #c62828); }
+.icon-green  { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
+.icon-purple { background: linear-gradient(135deg, #ab47bc, #6a1b9a); }
+.icon-gray   { background: linear-gradient(135deg, #bdbdbd, #757575); }
+.icon-blue   { background: linear-gradient(135deg, #4dd0e1, #0097a7); }
+.icon-yellow { background: linear-gradient(135deg, #ffd54f, #f9a825); }
+
+@media (max-width: 768px) {
+    .prodi-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.prodi-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #2196F3;
+    text-decoration: none;
+    font-size: 14px;
+}
+.prodi-link:hover {
+    text-decoration: underline;
+}
+.prodi-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* ===== NAVBAR MENU LINKS ===== */
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 6px 4px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.site-nav a:hover {
+    color: #d68a1f;
+}
+
+.site-nav a.is-active {
+    color: #d68a1f;
+    font-weight: 700;
+}
+
+.site-nav a.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #d68a1f;
+    border-radius: 2px;
+}
+/* ===== SAMBUTAN KEPALA SEKOLAH ===== */
+.sambutan {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex-wrap: wrap;
+}
+
+.sambutan__foto img {
+    max-width: 220px;
+    height: auto;
+    border-radius: 12px;
+    border: 4px solid var(--gold);
+}
+
+.sambutan__teks {
+    flex: 1;
+    min-width: 280px;
+}
+
+.sambutan__label {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.sambutan__nama {
+    font-family: var(--font-display);
+    font-size: 24px;
+    margin-bottom: 1px;
+    color: var(--navy);
+}
+
+.sambutan__isi {
+    color: var(--ink-soft);
+    line-height: 1.7;
+    white-space: pre-line;
+}

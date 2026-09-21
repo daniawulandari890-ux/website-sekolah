@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.prodi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.prodi-item {
+    text-align: center;
+}
+
+.prodi-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.prodi-item p {
+    color: #555;
+    font-size: 14px;
+}
+
+.prodi-icon {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.prodi-icon i {
+    font-size: 60px;
+    color: #fff;
+}
+
+.icon-red    { background: linear-gradient(135deg, #ef5350, #c62828); }
+.icon-green  { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
+.icon-purple { background: linear-gradient(135deg, #ab47bc, #6a1b9a); }
+.icon-gray   { background: linear-gradient(135deg, #bdbdbd, #757575); }
+.icon-blue   { background: linear-gradient(135deg, #4dd0e1, #0097a7); }
+.icon-yellow { background: linear-gradient(135deg, #ffd54f, #f9a825); }
+
+@media (max-width: 768px) {
+    .prodi-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.berita-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.berita-item__img {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.berita-item__body time {
+    font-size: 14px;
+    color: #6b8e6b;
+    font-weight: 600;
+}
+
+.berita-item__body h3 {
+    margin: 6px 0;
+    font-size: 20px;
+}
+
+.berita-item__body p {
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .berita-item {
+        flex-direction: column;
+    }
+    .berita-item__img {
+        width: 100%;
+        height: auto;
+    }
+}
+.brand__mark img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
